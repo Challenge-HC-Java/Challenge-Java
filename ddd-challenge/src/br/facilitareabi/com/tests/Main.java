@@ -3,6 +3,7 @@ package br.facilitareabi.com.tests;
 import br.facilitareabi.com.models.*;
 
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
@@ -11,7 +12,12 @@ public class Main {
         Consulta consulta = new Consulta();
         FacilitaReabi facilitaReabi = new FacilitaReabi();
         Notificar notificar = new Notificar();
+        GerenciarAgendamento gerenciarAgendamento = new GerenciarAgendamento();
+        FinalizarAtendimento finalizarAtendimento = new FinalizarAtendimento();
+        PersonaTeleconsulta personaTeleconsulta = new PersonaTeleconsulta();
+        
         menu.cadastroObrigatorio(paciente);
+        personaTeleconsulta.personaIdeal();
         facilitaReabi.facilitaReabi(paciente);
 
         boolean continuar = true;
@@ -19,17 +25,17 @@ public class Main {
             String resultado = menu.menu(paciente).trim();
             switch (resultado) {
                 case "1":
-                    String resposta = consulta.agendarConsulta(paciente);
+                    String resposta = gerenciarAgendamento.agendarConsulta(paciente);
                     if (resposta.equalsIgnoreCase("Sim")) {
-                        consulta.consulta();
-                        consulta.primeiraConsulta();
-                        consulta.desejaNotificacao();
+                        gerenciarAgendamento.consulta();
+                        gerenciarAgendamento.primeiraConsulta();
+                        gerenciarAgendamento.desejaNotificacao();
                     } else {
                         System.out.println("Você escolheu não agendar a consulta. Retornando o menu.");
                     }
                     break;
                 case "2":
-                    consulta.teleconsulta();
+                    gerenciarAgendamento.teleconsulta();
                     break;
                 case "3":
                     String explicacao = facilitaReabi.entendendo(paciente);
@@ -38,7 +44,6 @@ public class Main {
                     if (consulta.getDataHora() != null) {
                         notificar.notificar(consulta);
                     } else {
-
                         System.out.println("Você ainda não tem lembretes sobre suas consultas!");
                     }
                     break;
@@ -47,7 +52,6 @@ public class Main {
                     break;
                 case "5":
                     continuar = false;
-
                     break;
                 default:
                     System.out.println("Opção inválida. Por favor, escolha de 1 a 5.");
@@ -66,8 +70,13 @@ public class Main {
             }
         }
         facilitaReabi.inclusao();
+        System.out.print("Deseja confirmar presença para sua consulta ? ");
+        String resposta = leitor.nextLine();
 
+        boolean confirmacao = resposta.equalsIgnoreCase("Sim");
+        consulta.confirmarPresenca(confirmacao);
+        consulta.atualizarStatusConsulta();
+        finalizarAtendimento.finalizarCodigo(paciente, consulta);
         leitor.close();
-
     }
 }

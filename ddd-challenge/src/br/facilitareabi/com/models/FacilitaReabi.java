@@ -43,7 +43,7 @@ public class FacilitaReabi extends Paciente {
             System.out.println("Sabemos que o mundo digital pode ser novo para você. Por isso, fizemos tudo com letras grandes, linguagem simples e apoio humano sempre disponível.");
             System.out.println("Se você sentir dificuldade, não se preocupe: nossa equipe está pronta para te ajudar em cada etapa.");
         } else {
-            System.out.println("\n" + paciente.getNome()+  " " +"Vamos te explicar mais sobre nossas consultas on-lines." );
+            System.out.println("\n" + paciente.getNome()+  " " +"vamos te explicar mais sobre nossas consultas on-lines." );
             System.out.println("Nosso app facilita sua vida na hora de cuidar da saúde. Veja o que você vai encontrar:");
 
             System.out.println("\n Funcionalidades principais:"+ "\n" +
