@@ -6,17 +6,17 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
-
         Paciente paciente = new Paciente();
         Menu menu = new Menu();
         Consulta consulta = new Consulta();
         FacilitaReabi facilitaReabi = new FacilitaReabi();
         Notificar notificar = new Notificar();
         menu.cadastroObrigatorio(paciente);
+        facilitaReabi.facilitaReabi(paciente);
 
         boolean continuar = true;
         while (continuar) {
-            String resultado = menu.menu(paciente);
+            String resultado = menu.menu(paciente).trim();
             switch (resultado) {
                 case "1":
                     String resposta = consulta.agendarConsulta(paciente);
@@ -47,7 +47,7 @@ public class Main {
                     break;
                 case "5":
                     continuar = false;
-                    System.out.println("Encerrando o programa.");
+
                     break;
                 default:
                     System.out.println("Opção inválida. Por favor, escolha de 1 a 5.");
@@ -65,6 +65,7 @@ public class Main {
                 }
             }
         }
+        facilitaReabi.inclusao();
 
         leitor.close();
 

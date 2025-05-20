@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Menu  {
 
-    //métodos
+    // Métodos
 
     public void cadastroObrigatorio(Paciente paciente){
         System.out.println("==========================================");
@@ -14,7 +14,6 @@ public class Menu  {
         System.out.println(" \n==========================================");
         paciente.realizarCadastro();
         System.out.println("Obrigado por fazer seu cadastro, agora você tem livre acesso aos nossos serviços! " );
-
     }
 
     public String menu(Paciente paciente) {
@@ -45,6 +44,11 @@ public class Menu  {
                 case "4":
                     System.out.println("\nOk! Você será direcionado para a aba de perguntas frequentes..");
                     return "4";
+                case "5":
+                    System.out.println("\n==========================================");
+                    System.out.println(paciente.getNome()+ "você será direcionado para a aba de verificação de teleconsultas antes de encerrar o programa1");
+
+                    return "5";
 
                 default:
                     System.out.println("\nOpção inválida. Tente novamente.");

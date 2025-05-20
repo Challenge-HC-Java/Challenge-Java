@@ -1,0 +1,84 @@
+02/05/2025
+O desafio é criar uma solução para auxiliar as pessoas que tem dificuldade no uso do celular para sua saúde digital.
+Com o objetivo de reduzir a taxa de absenteísmo no IMREA.
+Público-alvo-> pacientes com deficiência física, motora e visual; cuidadores e familiares; equipe médica que acompanha sua evolução nos
+tratamentos.
+
+Criar o nome da solução: FacilitaReabi ; CuidaSimples; Facilita+
+Um sistema inteligente e acessível voltado à gestão de cuidados e engajamento digital de pacientes em reabilitação, buscando
+ajudar os usuários a acompanhar digitalmente seus comprimissos de saúde como consultas, datas de exames e sessõies de fisioterapia,
+uma vez que o sistema possuirá canais como wpp e telegram para notificar o paciente, alem de disponibilizar uma IA que atuará
+como cuidador e poderá facilitar os agendamentos, educar o paciente com vídeos e tutoriais acessíveis.
+Essas melhorias no sistema do IMREA tornaram o app mais inclusivo, ao passo que irá trazer uma autonomia digital acessível, mesmo com limitações físicas ou cognitivas.
+Como o sistema é focado em ajudar o paciente a ter uma ótima experiência com sua saúde digital, o app também irá ter uma aba para coletar feedback
+do usuário a fim de adaptar para futuras interações.
+
+Exemplo de Fluxo no Sistema
+Paciente é cadastrado por um profissional ou cuidador.
+O sistema agenda as sessões de reabilitação ou consultas.
+Notificações são disparadas com voz e texto acessível, lembrando compromissos.
+Após atendimento, paciente ou cuidador pode enviar feedback ou reagendar.
+Tutoriais são oferecidos, explicando o uso do sistema e ferramentas digitais.
+
+Classes->
+-usuario(abstrata)
+    -paciente
+    -cuidador= alguém que gerencia o paciente
+    -tipoDeficiencia
+atendimento
+    consulta
+    reabilitação
+    teleatendiomento
+agenda
+    agenda
+    horario
+    StatusAgendamento(enum)
+comunicacao
+    Notificacao
+    CanalComunicacao (enum)
+    Mensagem
+suporte
+    Tutorial
+    FeedbackInteracao
+sistema
+    InstituicaoDeSaude
+    ProfissionalDeSaude
+    Endereco (Value Object)
+principal
+    Main (classe de execução)
+
+
+Atributos(características)->
+paciente: id , nome, cpf, nascimento, telefone, email
+
+consulta:id, paciente, profissional, dataHora, local, status
+
+reabilitação: tipo, paciente, profissional, datas
+
+teleatendimento: dataHora, canal: CanalComunicacao, paciente , profissional , linkDeAcesso
+
+Agenda: dono, compromissos
+
+Horario: dia, hora, status
+
+Notificacao: id, destinatario, mensagem, canal, dataEnvio, lida
+
+Mensagem:titulo, conteudo, dataCriacao
+
+Tutorial: id, titulo, descricao, tipoDeficienciaAlvo, urlDoConteudo, assistidoPor
+
+FeedbackInteracao: paciente, tutorial, nota, comentario
+
+InstituicaoDeSaude: nome, cnpj, endereco, listaDeProfissionais
+
+ProfissionalDeSaude: nome, especialidade, crmOuRegistro, instituicaoVinculada
+
+Endereco: rua, numero, cidade, estado, cep
+
+
+
+
+TEORIA:
+Sempre que um método precisa ler e armazenar valores em atributos
+deve começar com Scanner e depopis usar this.atributo = scanner.nextLine()
+e depois fazer outro método que exiba os dados

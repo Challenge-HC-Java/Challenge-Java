@@ -1,23 +1,32 @@
 package br.facilitareabi.com.models;
 
+import br.facilitareabi.com.enums.StatusAgendamentoEnum;
+
 import java.util.Scanner;
 
-public class Consulta extends Paciente {
-    //atributos
+public class Consulta  {
+
+    // Atributos
     protected String dataHora;
     protected StatusAgendamentoEnum status;
+    private String especialidade;
+    private boolean presencaConfirmada = false;
 
+    // Getters e Setters
     public String getDataHora() {return dataHora;}
-
     public void setDataHora(String dataHora) {this.dataHora = dataHora;}
-
     public StatusAgendamentoEnum getStatus() {return status;}
-
     public void setStatus(StatusAgendamentoEnum status) {this.status = status;}
+    public String getEspecialidade() {return especialidade;}
+    public void setEspecialidade(String especialidade) {this.especialidade = especialidade;}
+    public boolean isPresencaConfirmada() {return presencaConfirmada;}
+    public void setPresencaConfirmada(boolean presencaConfirmada) {this.presencaConfirmada = presencaConfirmada;}
 
     Scanner leitor = new Scanner(System.in);
 
-    public String agendarConsulta(Paciente paciente) {
+    // Métodos
+
+    public String agendarConsulta(Usuario usuario) {
         System.out.println("Você deseja marcar uma teleconsulta conosco?");
         String resposta = leitor.nextLine();
         switch (resposta) {
@@ -41,11 +50,12 @@ public class Consulta extends Paciente {
         String termoConsentimento = "Declaro que li e concordo com o uso dos meus dados para fins de atendimento e melhoria do serviço.";
         String lido = "";
         System.out.println(termoConsentimento);
+        System.out.println(" \n==========================================");
         while (true) {
-            System.out.println("Aceita o termo? (Sim/Não):");
+            System.out.println("\n" +"Aceita o termo? (Sim/Não):");
             lido = leitor.nextLine();
             if (lido.equalsIgnoreCase("Sim")) {
-                System.out.println("Resposta registrada. Consulta poderá ser realizada.");
+                System.out.println("Resposta registrada. Sua consulta poderá ser realizada.");
                 break;
             } else if (lido.equalsIgnoreCase("Não")) {
                 System.out.println("Ao não aceitar o termo, sua consulta não poderá ser realizada.");
@@ -59,45 +69,49 @@ public class Consulta extends Paciente {
         System.out.println("Digite o dia e o horário que você deseja agendar sua consulta: ");
         this.dataHora = leitor.nextLine();
         this.status = StatusAgendamentoEnum.AGENDADA;
-
+        System.out.println("Digite a especialidade:");
+        this.especialidade = leitor.nextLine();
     }
 
     //+desejaNotificacao():String
-    public String desejaNotificacao(){
-        String notificacao = "";
-        String certeza = "";
-        String mensagem = "Você tem uma teleconsulta marcada para o dia "+ getDataHora();
+
+    public String desejaNotificacao() {
         System.out.println("Você deseja receber notificações sobre o status das suas teleconsultas? ");
-        notificacao = leitor.nextLine();
-        switch (notificacao){
+        String notificacao = leitor.nextLine();
+        String mensagem = "Você tem uma teleconsulta marcada para o dia " + getDataHora();
+
+        switch (notificacao) {
             case "Sim":
                 System.out.println("Ótima escolha, a partir de agora você será notificado sobre informações importantes!");
                 System.out.println(mensagem);
                 break;
             case "Não":
-                System.out.println("Que pena! Notificações de lembrete te ajudam a não faltar nas consultas. Quer recebe-lás? ");
-                certeza= leitor.nextLine();
-                if (certeza.equalsIgnoreCase("Sim")){
+                System.out.println("Que pena! Notificações de lembrete te ajudam a não faltar nas consultas. Quer recebê-las? ");
+                String certeza = leitor.nextLine();
+                if (certeza.equalsIgnoreCase("Sim")) {
                     System.out.println("Ótima escolha, a partir de agora você será notificado sobre informações importantes!");
                     System.out.println(mensagem);
-                }else
+                } else {
                     System.out.println("Ok, você não irá ser notificado.");
+                }
+                break;
             default:
-                System.out.println("Ok, você não irá ser notificado.");
+                System.out.println("Resposta inválida, assumindo que não deseja notificações.");
+                break;
         }
         return mensagem;
     }
 
-    public void teleconsulta(){
+    public void teleconsulta() {
         System.out.println("Você já tem uma teleconsulta agendada?");
         String resposta = leitor.nextLine();
-        if (resposta.equalsIgnoreCase("Sim")){
+        if (resposta.equalsIgnoreCase("Sim")) {
             System.out.println("Qual o dia e o horário da sua consulta?");
             this.dataHora = leitor.nextLine();
             this.status = StatusAgendamentoEnum.AGENDADA;
-            System.out.println("Sua consulta é dia "+ getDataHora());
+            System.out.println("Sua consulta é dia " + getDataHora());
             return;
-        }else{
+        } else {
             System.out.println("Ok, você será direcionado para a aba de agendar consultas.");
             this.primeiraConsulta();
             this.consulta();
@@ -105,37 +119,35 @@ public class Consulta extends Paciente {
         }
     }
 
-    //+status():VOID
-    //if possui uma teleconsulta for sim exibir esse métodod
-   /* public void verificarAgendarTeleconsulta(Paciente paciente){
-        System.out.println("Você já tem uma teleconsulta agendada? (Sim/Não)");
-        String resposta = leitor.nextLine();
-        if (resposta.equalsIgnoreCase("Sim")) {
-            if (this.dataHora != null && this.status != null) {
-                System.out.println("======================================");
-                System.out.println("Paciente: " + paciente.getNome());
-                System.out.println("Status da Consulta: " + this.status);
-                System.out.println("Data e Hora: " + this.dataHora);
-                System.out.println("======================================");
-            } else {
-                System.out.println("Nenhuma consulta registrada no sistema.");
-            }
+    public void confirmarPresenca(boolean confirmacao) {
+        this.presencaConfirmada = confirmacao;
+        if (confirmacao) {
+            System.out.println("\nPresença confirmada com sucesso!");
         } else {
-            System.out.println("Deseja agendar uma nova teleconsulta? (Sim/Não)");
-            String desejaAgendar = leitor.nextLine();
-            if (desejaAgendar.equalsIgnoreCase("Sim")) {
-                this.primeiraConsulta();
-                this.consulta();
-                this.desejaNotificacao();
-            } else {
-                System.out.println("Tudo bem. Você poderá agendar uma teleconsulta futuramente.");
-            }
+            System.out.println("\nPresença não confirmada.");
         }
     }
-    */
+
+        public void atualizarStatusConsulta() {
+            System.out.println("\nEscolha o novo status da consulta:\n1 - AGENDADA\n2 - CANCELADA\n3 - REALIZADA");
+            String escolha = leitor.nextLine();
+            switch (escolha) {
+                case "1": setStatus(StatusAgendamentoEnum.AGENDADA);
+                break;
+                case "2": setStatus(StatusAgendamentoEnum.CANCELADA);
+                break;
+                case "3": setStatus(StatusAgendamentoEnum.REALIZADA);
+                break;
+                default: System.out.println("Status inválido");
+                return;
+            }
+            System.out.println("Status atualizado: " + getStatus());
+        }
+
+    }
 
 
-}
+
 
 
 
