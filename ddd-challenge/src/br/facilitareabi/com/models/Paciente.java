@@ -7,9 +7,9 @@ public class Paciente extends Usuario {
     // Métodos
 
     // Método que agrupa os outros
-    public void realizarCadastro() {
-        cadastrarUsuario();
+    public void realizarCadastro(Scanner scanner) {
+        cadastrarUsuario(scanner);
         exibirUsuario();
-        dadoscorretos();
+        dadoscorretos(scanner);
     }
 }

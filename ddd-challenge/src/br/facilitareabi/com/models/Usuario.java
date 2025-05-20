@@ -29,14 +29,18 @@ public abstract class Usuario {
     // Métodos
 
     // Cadastrar usuário
-    public void cadastrarUsuario() {
-        Scanner scanner = new Scanner(System.in);
-
+    public void cadastrarUsuario(Scanner scanner) {
         System.out.println("\nDigite seu nome completo: ");
         this.nome = scanner.nextLine();
-        System.out.println("Digite sua idade: ");
-        this.idade = scanner.nextInt();
-        scanner.nextLine();
+        while (true) {
+            System.out.println("Digite sua idade: ");
+            try {
+                this.idade = Integer.parseInt(scanner.nextLine());
+                break; // sai do loop se a idade for válida
+            } catch (NumberFormatException e) {
+                System.out.println("Por favor, digite um número válido para a idade.");
+            }
+        }
         System.out.println("Digite seu CPF: ");
         this.cpf = scanner.nextLine();
         System.out.println("Digite sua data de nascimento: ");
@@ -60,8 +64,7 @@ public abstract class Usuario {
     }
 
     // Confirmar se os dados estão corretos
-    public void dadoscorretos() {
-        Scanner leitor = new Scanner(System.in);
+    public void dadoscorretos(Scanner leitor) {
         System.out.println(" \n==========================================");
         System.out.println("Seus dados acima estão corretos? (Sim/Não) ");
         String resposta = leitor.nextLine();
@@ -70,9 +73,9 @@ public abstract class Usuario {
             System.out.println(" \n==========================================");
         } else {
             System.out.println("Tudo bem, digite novamente seus dados.");
-            cadastrarUsuario();
+            cadastrarUsuario(leitor);
             exibirUsuario();
-            dadoscorretos();
+            dadoscorretos(leitor);
         }
     }
 }

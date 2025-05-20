@@ -10,12 +10,8 @@ public class FinalizarAtendimento {
         System.out.println("Paciente: " + paciente.getNome());
         System.out.println("Idade: " + paciente.getIdade());
         System.out.println("CPF: " + paciente.getCpf());
-        System.out.println("Data Nasc: " + paciente.getDataNascimento());
         System.out.println("Telefone: " + paciente.getTelefone());
         System.out.println("Email: " + paciente.getEmail());
-
-        System.out.println("Consulta: " + consulta.getDataHora());
-        System.out.println("Especialidade: " + consulta.getEspecialidade());
 
         if (consulta.isPresencaConfirmada()) {
             consulta.setStatus(StatusAgendamentoEnum.REALIZADA);

@@ -20,7 +20,7 @@ public class FacilitaReabi extends Paciente {
         System.out.println("\n==========================================");
         if (paciente.getIdade() >= 50){
             System.out.println("\n==========================================");
-            System.out.println("Percebemos que você tem" +paciente.getIdade()+ " " +"anos, e isso é sinal de muita experiência e sabedoria. ");
+            System.out.println("Percebemos que você tem " +paciente.getIdade()+ " " +"anos, e isso é sinal de muita experiência e sabedoria. ");
             System.out.println("Pensando nisso, criamos uma explicação especial, com calma e clareza, para te ajudar a usar o aplicativo com tranquilidade.");
             System.out.println("\n" + paciente.getNome()+ " " +"Vamos te explicar com detalhes como nossas consultas realizadas pelo celular podem ajudar no seu tratamento.");
             System.out.println("\n" +"Nosso aplicativo foi desenvolvido com carinho para facilitar sua vida. Veja o que você vai encontrar nele:");

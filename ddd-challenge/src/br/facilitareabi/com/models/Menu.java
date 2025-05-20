@@ -16,7 +16,7 @@ public class Menu  {
         System.out.println(" \n==========================================");
         System.out.println("\nPara continuar tendo acesso aos nossos serviços, por favor, realize seu cadastro! " );
         System.out.println(" \n==========================================");
-        paciente.realizarCadastro();
+        paciente.realizarCadastro(scanner);
         System.out.println("Obrigado por fazer seu cadastro, agora você tem livre acesso aos nossos serviços! " );
     }
 
@@ -36,7 +36,7 @@ public class Menu  {
                         return menu(paciente);
                     } else {
                         System.out.println("\nOk! Você será direcionado para a aba de cadastros..");
-                        paciente.realizarCadastro();
+                        paciente.realizarCadastro(scanner);
                     }
                     return "1";
                 case "2":
@@ -50,7 +50,7 @@ public class Menu  {
                     return "4";
                 case "5":
                     System.out.println("\n==========================================");
-                    System.out.println(paciente.getNome()+ "você será direcionado para a aba de verificação de teleconsultas antes de encerrar o programa1");
+                    System.out.println(paciente.getNome()+ " você será direcionado para a aba de verificação de teleconsultas antes de encerrar o programa");
 
                     return "5";
 

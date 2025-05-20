@@ -28,6 +28,7 @@ public class GerenciarAgendamento extends Consulta{
 
     //+primeiraConsulta():String
     public void primeiraConsulta() {
+        System.out.println(" \n==========================================");
         String termoConsentimento = "Declaro que li e concordo com o uso dos meus dados para fins de atendimento e melhoria do serviço.";
         String lido = "";
         System.out.println(termoConsentimento);
@@ -91,7 +92,7 @@ public class GerenciarAgendamento extends Consulta{
             this.status = StatusAgendamentoEnum.AGENDADA;
             System.out.println("Qual é a especialidade da sua consulta?");
             this.especialidade = leitor.nextLine();
-            System.out.println("Sua consulta é dia " + getDataHora() + "para a especialidade " + getEspecialidade()+".");
+            System.out.println("Sua consulta é dia " + getDataHora() + " e a especialidade é " + getEspecialidade()+".");
             return;
         } else {
             System.out.println("Ok, você será direcionado para a aba de agendar consultas.");

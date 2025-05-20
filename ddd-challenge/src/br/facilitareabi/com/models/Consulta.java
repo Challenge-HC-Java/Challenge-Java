@@ -1,7 +1,6 @@
 package br.facilitareabi.com.models;
 
 import br.facilitareabi.com.enums.StatusAgendamentoEnum;
-
 import java.util.Scanner;
 
 public class Consulta  {
@@ -22,10 +21,7 @@ public class Consulta  {
     public boolean isPresencaConfirmada() {return presencaConfirmada;}
     public void setPresencaConfirmada(boolean presencaConfirmada) {this.presencaConfirmada = presencaConfirmada;}
 
-    Scanner leitor = new Scanner(System.in);
-
     // Métodos
-
     public void confirmarPresenca(boolean confirmacao) {
         this.presencaConfirmada = confirmacao;
         if (confirmacao) {
@@ -35,7 +31,7 @@ public class Consulta  {
         }
     }
 
-    public void atualizarStatusConsulta() {
+    public void atualizarStatusConsulta(Scanner leitor) {
         System.out.println("\nEscolha o novo status da consulta:\n1 - AGENDADA\n2 - CANCELADA\n3 - REALIZADA");
         String escolha = leitor.nextLine();
         switch (escolha) {

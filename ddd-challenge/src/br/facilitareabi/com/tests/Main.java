@@ -1,6 +1,7 @@
 package br.facilitareabi.com.tests;
 
 import br.facilitareabi.com.models.*;
+import br.facilitareabi.com.enums.StatusAgendamentoEnum;
 
 import java.util.Scanner;
 
@@ -16,9 +17,8 @@ public class Main {
         FinalizarAtendimento finalizarAtendimento = new FinalizarAtendimento();
         PersonaTeleconsulta personaTeleconsulta = new PersonaTeleconsulta();
 
-
         menu.cadastroObrigatorio(paciente);
-        personaTeleconsulta.personaIdeal(paciente);
+        personaTeleconsulta.personaIdeal(paciente, leitor);
         facilitaReabi.facilitaReabi(paciente);
 
         boolean continuar = true;
@@ -77,8 +77,9 @@ public class Main {
 
         boolean confirmacao = resposta.equalsIgnoreCase("Sim");
         consulta.confirmarPresenca(confirmacao);
-        consulta.atualizarStatusConsulta();
+        consulta.atualizarStatusConsulta(leitor);
         finalizarAtendimento.finalizarCodigo(paciente, consulta);
 
+        leitor.close();
     }
 }

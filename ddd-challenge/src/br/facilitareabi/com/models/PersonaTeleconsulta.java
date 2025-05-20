@@ -3,16 +3,11 @@ package br.facilitareabi.com.models;
 import java.util.Scanner;
 
 public class PersonaTeleconsulta extends Usuario{
-    Scanner leitor = new Scanner(System.in);
 
     // Métodos
+
     //+ personaIdeal(): String
-
-
-
-    public String personaIdeal(Paciente paciente) {
-        Scanner leitor = new Scanner(System.in);
-
+    public String personaIdeal(Paciente paciente, Scanner leitor) {
         System.out.println(" \n==========================================");
         int pontuacao = 0;
 
@@ -49,7 +44,7 @@ public class PersonaTeleconsulta extends Usuario{
         String resposta5 = leitor.nextLine().trim();
         boolean interesseEmPsicologiaOuFono = resposta5.equalsIgnoreCase("sim");
 
-        // Avaliação das respostas
+
         if (pontuacao >= 3) {
             System.out.println("\nParabéns, " + paciente.getNome() + "! Você é um paciente ideal para atendimento online.");
         } else {
@@ -59,7 +54,7 @@ public class PersonaTeleconsulta extends Usuario{
         }
 
         // Informar sobre a adequação do atendimento online para Psicologia e Fonoaudiologia
-        if (interesseEmPsicologiaOuFono) {
+        if (interesseEmPsicologiaOuFono && pontuacao >= 3) {
             System.out.println("\nAs especialidades de Psicologia e Fonoaudiologia são especialidades adequadas para atendimento online, logo," +
                     "\n" + "é um prazer te atender em um consulta on-line, por isso não se preocupe se você tem vergonha ou dificuldade de se abrir com nossa equipe,"+
                     "\n" + "Durante o uso do nosso aplicativo vamos te ajudar!");
@@ -67,7 +62,6 @@ public class PersonaTeleconsulta extends Usuario{
             System.out.println("\nEntendido. Caso tenha interesse futuro em Psicologia ou Fonoaudiologia, saiba que essas especialidades são adequadas para atendimento online.");
         }
 
-        leitor.close();
         return null;
     }
 }
