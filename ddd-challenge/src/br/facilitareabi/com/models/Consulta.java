@@ -29,7 +29,7 @@ public class Consulta  {
     public void confirmarPresenca(boolean confirmacao) {
         this.presencaConfirmada = confirmacao;
         if (confirmacao) {
-            System.out.println("\nPresença confirmada com sucesso para dia " + getDataHora()+ "para a especialidade" + getEspecialidade());
+            System.out.println("\nPresença confirmada com sucesso para dia " + getDataHora() + " para a especialidade " + getEspecialidade());
         } else {
             System.out.println("\nPresença não confirmada.");
         }

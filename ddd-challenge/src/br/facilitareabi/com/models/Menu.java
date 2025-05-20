@@ -5,6 +5,10 @@ import java.util.Scanner;
 public class Menu  {
 
     // Métodos
+    private Scanner scanner;
+    public Menu(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
     public void cadastroObrigatorio(Paciente paciente){
         System.out.println("==========================================");
@@ -17,14 +21,14 @@ public class Menu  {
     }
 
     public String menu(Paciente paciente) {
-        Scanner leitor = new Scanner(System.in);
+
         Consulta consulta = new Consulta();
         String opcao = "";
         while (true) {
             System.out.println(" \n==========================================");
             System.out.println(" \nEscolha, dentre as opções abaixo, o que você deseja fazer no app: \n1- Realizar cadastro\n2- Teleconsulta"
                     +"\n3- FacilitaReabi \n4- Dúvidas frequentes \n5- Sair ");
-            opcao = leitor.nextLine();
+            opcao = scanner.nextLine();
             switch (opcao) {
                 case "1":
                     if (paciente.getNome() != null){

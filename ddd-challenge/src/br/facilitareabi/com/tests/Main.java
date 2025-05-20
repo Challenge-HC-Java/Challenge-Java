@@ -8,16 +8,17 @@ public class Main {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
         Paciente paciente = new Paciente();
-        Menu menu = new Menu();
+        Menu menu = new Menu(leitor);
         Consulta consulta = new Consulta();
         FacilitaReabi facilitaReabi = new FacilitaReabi();
         Notificar notificar = new Notificar();
         GerenciarAgendamento gerenciarAgendamento = new GerenciarAgendamento();
         FinalizarAtendimento finalizarAtendimento = new FinalizarAtendimento();
         PersonaTeleconsulta personaTeleconsulta = new PersonaTeleconsulta();
-        
+
+
         menu.cadastroObrigatorio(paciente);
-        personaTeleconsulta.personaIdeal();
+        personaTeleconsulta.personaIdeal(paciente);
         facilitaReabi.facilitaReabi(paciente);
 
         boolean continuar = true;
@@ -49,6 +50,7 @@ public class Main {
                     break;
                 case "4":
                     System.out.println("Você será direcionado para a aba de perguntas frequentes.");
+                    Faqs.mostrarFaqs();
                     break;
                 case "5":
                     continuar = false;
@@ -77,6 +79,6 @@ public class Main {
         consulta.confirmarPresenca(confirmacao);
         consulta.atualizarStatusConsulta();
         finalizarAtendimento.finalizarCodigo(paciente, consulta);
-        leitor.close();
+
     }
 }

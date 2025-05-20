@@ -2,18 +2,22 @@ package br.facilitareabi.com.models;
 
 import java.util.Scanner;
 
-public class PersonaTeleconsulta extends Usuario {
+public class PersonaTeleconsulta extends Usuario{
     Scanner leitor = new Scanner(System.in);
 
     // Métodos
     //+ personaIdeal(): String
 
-    public String personaIdeal (){
+
+
+    public String personaIdeal(Paciente paciente) {
+        Scanner leitor = new Scanner(System.in);
+
         System.out.println(" \n==========================================");
         int pontuacao = 0;
 
         System.out.println("\n==========================================");
-        System.out.println(getNome() + ", antes de tudo, nossa equipe deseja ter certeza de que você é o paciente ideal para atendimento online!");
+        System.out.println(paciente.getNome() + ", antes de tudo, nossa equipe deseja ter certeza de que você é o paciente ideal para atendimento online!");
         System.out.println("Para isso, precisamos que você responda mais algumas perguntas que vão ajudar na nossa identificação.");
 
         System.out.print("\nVocê possui acesso estável à internet? (sim/não): ");
@@ -47,16 +51,16 @@ public class PersonaTeleconsulta extends Usuario {
 
         // Avaliação das respostas
         if (pontuacao >= 3) {
-            System.out.println("\nParabéns, " + getNome() + "! Você é um paciente ideal para atendimento online.");
+            System.out.println("\nParabéns, " + paciente.getNome() + "! Você é um paciente ideal para atendimento online.");
         } else {
-            System.out.println("\n" + getNome() + ", com base em suas respostas, o atendimento online pode não ser o mais adequado para você no momento." +
+            System.out.println("\n" + paciente.getNome() + ", com base em suas respostas, o atendimento online pode não ser o mais adequado para você no momento." +
                     "\n" + "Recomendamos que você procure pessoalmente nossa equipe médica para realizar seus tratamentos."+
-                    "\n" + "Mesmo assim, você pode e deve dar uma olhada no nosso aplicativo para prender mais sobre nós e as teleconsultas.");
+                    "\n");
         }
 
         // Informar sobre a adequação do atendimento online para Psicologia e Fonoaudiologia
         if (interesseEmPsicologiaOuFono) {
-            System.out.println("\nEntendido. As especialidades de Psicologia e Fonoaudiologia são especialidades adequadas para atendimento online, logo," +
+            System.out.println("\nAs especialidades de Psicologia e Fonoaudiologia são especialidades adequadas para atendimento online, logo," +
                     "\n" + "é um prazer te atender em um consulta on-line, por isso não se preocupe se você tem vergonha ou dificuldade de se abrir com nossa equipe,"+
                     "\n" + "Durante o uso do nosso aplicativo vamos te ajudar!");
         } else {
@@ -66,5 +70,4 @@ public class PersonaTeleconsulta extends Usuario {
         leitor.close();
         return null;
     }
-
 }
