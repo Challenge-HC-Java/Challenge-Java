@@ -15,7 +15,6 @@ public class FacilitaReabi extends Paciente {
     Scanner leitor = new Scanner(System.in);
 
     // Métodos
-
     public void facilitaReabi(Paciente paciente){
         System.out.println("\n==========================================");
         if (paciente.getIdade() >= 50){
@@ -24,12 +23,10 @@ public class FacilitaReabi extends Paciente {
             System.out.println("Pensando nisso, criamos uma explicação especial, com calma e clareza, para te ajudar a usar o aplicativo com tranquilidade.");
             System.out.println("\n" + paciente.getNome()+ " " +"Vamos te explicar com detalhes como nossas consultas realizadas pelo celular podem ajudar no seu tratamento.");
             System.out.println("\n" +"Nosso aplicativo foi desenvolvido com carinho para facilitar sua vida. Veja o que você vai encontrar nele:");
-
             System.out.println("\n Menu principal:");
             System.out.println("\n" +"Informações sobre sua próxima consulta (data, horário e link).");
             System.out.println("\n" +"Explicações simples sobre como funciona a teleconsulta.");
             System.out.println("\n" +"Botão direto para entrar na consulta no dia e hora marcados.");
-
             System.out.println("\n Passo a passo para usar o aplicativo:");
             System.out.println("\n==========================================");
             System.out.println("\n" +"1. Abra o aplicativo no celular."+ "\n" +
@@ -37,7 +34,6 @@ public class FacilitaReabi extends Paciente {
             "\n" +"3. Veja o horário marcado e toque em ‘Entrar na Consulta’."+ "\n" +
             "\n" +"4. Permita o uso da câmera e do microfone."+ "\n" +
             "\n" +"5. Aguarde o profissional de saúde iniciar a chamada.");
-
             System.out.println("\n Nossa missão é te acolher:");
             System.out.println(" \n==========================================");
             System.out.println("Sabemos que o mundo digital pode ser novo para você. Por isso, fizemos tudo com letras grandes, linguagem simples e apoio humano sempre disponível.");
@@ -45,20 +41,17 @@ public class FacilitaReabi extends Paciente {
         } else {
             System.out.println("\n" + paciente.getNome()+  " " +"vamos te explicar mais sobre nossas consultas on-lines." );
             System.out.println("Nosso app facilita sua vida na hora de cuidar da saúde. Veja o que você vai encontrar:");
-
             System.out.println("\n Funcionalidades principais:"+ "\n" +
             " \n=========================================="+ "\n" +
             "\n" +"Consulta rápida: veja o dia, hora e link da sua próxima consulta."+ "\n" +
             "\n" +"Acesso direto à chamada com um clique."+ "\n" +
             "\n" +"Informações claras sobre como a teleconsulta funciona.");
-
             System.out.println("\n Como usar:"+ "\n" +
             " \n==========================================" + "\n" +
             "\n" +"1. Abra o aplicativo no seu celular." + "\n" +
             "\n" +"2. Vá em ‘Minhas Consultas’." + "\n" +
             "\n" +"3. Clique no botão ‘Entrar’ na hora marcada." +  "\n" +
             "\n" +"4. Ative a câmera e o microfone se for solicitado.");
-
             System.out.println("\n Dica:");
             System.out.println(" \n==========================================");
             System.out.println("Programe um lembrete no celular para não esquecer sua consulta.");

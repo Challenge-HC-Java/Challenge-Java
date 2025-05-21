@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class GerenciarAgendamento extends Consulta{
     Scanner leitor = new Scanner(System.in);
-
+    // Métodos
     public String agendarConsulta(Usuario usuario) {
         System.out.println("Você deseja marcar uma teleconsulta conosco?");
         String resposta = leitor.nextLine();
@@ -26,7 +26,6 @@ public class GerenciarAgendamento extends Consulta{
         }
     }
 
-    //+primeiraConsulta():String
     public void primeiraConsulta() {
         System.out.println(" \n==========================================");
         String termoConsentimento = "Declaro que li e concordo com o uso dos meus dados para fins de atendimento e melhoria do serviço.";
@@ -55,7 +54,7 @@ public class GerenciarAgendamento extends Consulta{
         this.especialidade = leitor.nextLine();
     }
 
-    //+desejaNotificacao():String
+
     public String desejaNotificacao() {
         System.out.println("Você deseja receber notificações sobre o status das suas teleconsultas? ");
         String notificacao = leitor.nextLine();
@@ -82,7 +81,6 @@ public class GerenciarAgendamento extends Consulta{
         }
         return mensagem;
     }
-
     public void teleconsulta() {
         System.out.println("Você já tem uma teleconsulta agendada?");
         String resposta = leitor.nextLine();

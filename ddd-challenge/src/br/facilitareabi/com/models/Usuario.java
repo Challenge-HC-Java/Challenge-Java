@@ -3,7 +3,6 @@ package br.facilitareabi.com.models;
 import java.util.Scanner;
 
 public abstract class Usuario {
-
     // Atributos
     private String nome;
     private int idade;
@@ -27,8 +26,6 @@ public abstract class Usuario {
     public void setEmail(String email) {this.email = email;}
 
     // Métodos
-
-    // Cadastrar usuário
     public void cadastrarUsuario(Scanner scanner) {
         System.out.println("\nDigite seu nome completo: ");
         this.nome = scanner.nextLine();
@@ -50,8 +47,6 @@ public abstract class Usuario {
         System.out.println("Digite seu email: ");
         this.email = scanner.nextLine();
     }
-
-    // Exibir dados do usuário
     public void exibirUsuario() {
         System.out.println(" \n==========================================");
         System.out.println("Seus dados de cadastro são: ");
@@ -62,8 +57,6 @@ public abstract class Usuario {
         System.out.println("Telefone: " + getTelefone());
         System.out.println("Email: " + getEmail());
     }
-
-    // Confirmar se os dados estão corretos
     public void dadoscorretos(Scanner leitor) {
         System.out.println(" \n==========================================");
         System.out.println("Seus dados acima estão corretos? (Sim/Não) ");

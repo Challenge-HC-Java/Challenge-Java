@@ -4,7 +4,6 @@ import br.facilitareabi.com.enums.StatusAgendamentoEnum;
 import java.util.Scanner;
 
 public class Consulta  {
-
     // Atributos
     protected String dataHora;
     protected StatusAgendamentoEnum status;
@@ -30,7 +29,6 @@ public class Consulta  {
             System.out.println("\nPresença não confirmada.");
         }
     }
-
     public void atualizarStatusConsulta(Scanner leitor) {
         System.out.println("\nEscolha o novo status da consulta:\n1 - AGENDADA\n2 - CANCELADA\n3 - REALIZADA");
         String escolha = leitor.nextLine();

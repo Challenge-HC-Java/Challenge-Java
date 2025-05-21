@@ -1,10 +1,7 @@
 package br.facilitareabi.com.models;
 
 public class Notificar extends Paciente{
-
-    // Métodos
-
-    //+notificar(): VOID
+    // Método
     public void notificar(Consulta consulta) {
         System.out.println(" \n==========================================");
         System.out.println("LEMBRETE!");

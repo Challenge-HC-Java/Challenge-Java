@@ -1,6 +1,7 @@
 package br.facilitareabi.com.models;
 
 public class Faqs {
+    // Método
     public static void mostrarFaqs() {
         System.out.println("\n==========================================");
         System.out.println("Perguntas Frequentes:");
@@ -12,6 +13,14 @@ public class Faqs {
         System.out.println("   Você pode confirmar sua presença através do menu principal.");
         System.out.println("4. Como cancelar uma consulta?");
         System.out.println("   Entre em contato com nossa central de atendimento.");
+        System.out.println("5. Como funciona a teleconsulta pelo aplicativo?");
+        System.out.println("   Você acessa suas consultas, vê data e horário, e entra na chamada pelo próprio app com um clique.");
+        System.out.println("6. Quem oferece o serviço de teleconsulta?");
+        System.out.println("   O IMREA (Instituto de Medicina Física e Reabilitação) em parceria com o Instituto de Reabilitação Lucy Montoro.");
+        System.out.println("7. O aplicativo é adaptado para pessoas mais velhas?");
+        System.out.println("   Sim! Ele tem letras grandes, linguagem simples e explicações claras para facilitar o uso.");
+        System.out.println("8. Por que a teleconsulta é uma boa opção?");
+        System.out.println("   Evita deslocamentos, oferece mais conforto, economia de tempo e acesso rápido aos profissionais de saúde.");
         System.out.println("==========================================");
     }
 }

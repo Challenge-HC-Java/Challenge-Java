@@ -3,7 +3,6 @@ package br.facilitareabi.com.models;
 import java.util.Scanner;
 
 public class Menu  {
-
     // Métodos
     private Scanner scanner;
     public Menu(Scanner scanner) {
@@ -21,7 +20,6 @@ public class Menu  {
     }
 
     public String menu(Paciente paciente) {
-
         Consulta consulta = new Consulta();
         String opcao = "";
         while (true) {
@@ -51,9 +49,7 @@ public class Menu  {
                 case "5":
                     System.out.println("\n==========================================");
                     System.out.println(paciente.getNome()+ " você será direcionado para a aba de verificação de teleconsultas antes de encerrar o programa");
-
                     return "5";
-
                 default:
                     System.out.println("\nOpção inválida. Tente novamente.");
                     break;
