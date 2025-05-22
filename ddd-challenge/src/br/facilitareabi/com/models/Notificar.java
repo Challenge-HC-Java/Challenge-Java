@@ -1,6 +1,6 @@
 package br.facilitareabi.com.models;
 
-public class Notificar extends Paciente{
+public class Notificar {
     // Método
     public void notificar(Consulta consulta) {
         System.out.println(" \n==========================================");

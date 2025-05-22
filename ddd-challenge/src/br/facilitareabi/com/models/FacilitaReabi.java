@@ -2,7 +2,7 @@ package br.facilitareabi.com.models;
 
 import java.util.Scanner;
 
-public class FacilitaReabi extends Paciente {
+public class FacilitaReabi  {
     // Atributos
     private String incluir;
 

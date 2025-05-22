@@ -3,12 +3,11 @@ package br.facilitareabi.com.models;
 import java.util.Scanner;
 
 public class Menu  {
-    // Métodos
     private Scanner scanner;
     public Menu(Scanner scanner) {
         this.scanner = scanner;
     }
-
+    // Métodos
     public void cadastroObrigatorio(Paciente paciente){
         System.out.println("==========================================");
         System.out.println(" \nBem-vindo ao apliativo do IMREA-HCFMUSP !! ");

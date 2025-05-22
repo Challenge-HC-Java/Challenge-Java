@@ -4,8 +4,17 @@ import br.facilitareabi.com.enums.StatusAgendamentoEnum;
 
 import java.util.Scanner;
 
-public class GerenciarAgendamento extends Consulta{
+public class GerenciarAgendamento {
     Scanner leitor = new Scanner(System.in);
+    private Consulta consulta;
+
+    public GerenciarAgendamento() {
+        this.consulta = new Consulta();
+    }
+    public void atualizarStatus() {
+        consulta.atualizarStatusConsulta(leitor);
+    }
+
     // Métodos
     public String agendarConsulta(Usuario usuario) {
         System.out.println("Você deseja marcar uma teleconsulta conosco?");
@@ -48,17 +57,18 @@ public class GerenciarAgendamento extends Consulta{
 
     public void consulta(){
         System.out.println("Digite o dia e o horário que você deseja agendar sua consulta: ");
-        this.dataHora = leitor.nextLine();
-        this.status = StatusAgendamentoEnum.AGENDADA;
+        consulta.setDataHora(leitor.nextLine());
+        consulta.setStatus(StatusAgendamentoEnum.AGENDADA);
         System.out.println("Digite a especialidade:");
-        this.especialidade = leitor.nextLine();
+        consulta.setEspecialidade(leitor.nextLine());
     }
 
 
     public String desejaNotificacao() {
         System.out.println("Você deseja receber notificações sobre o status das suas teleconsultas? ");
         String notificacao = leitor.nextLine();
-        String mensagem = "Você tem uma teleconsulta marcada para o dia " + getDataHora();
+        String mensagem = "Você tem uma teleconsulta marcada para o dia " + consulta.getDataHora();
+
 
         switch (notificacao) {
             case "Sim":
@@ -86,11 +96,11 @@ public class GerenciarAgendamento extends Consulta{
         String resposta = leitor.nextLine();
         if (resposta.equalsIgnoreCase("Sim")) {
             System.out.println("Qual o dia e o horário da sua consulta?");
-            this.dataHora = leitor.nextLine();
-            this.status = StatusAgendamentoEnum.AGENDADA;
+            consulta.setDataHora(leitor.nextLine());
+            consulta.setStatus(StatusAgendamentoEnum.AGENDADA);
             System.out.println("Qual é a especialidade da sua consulta?");
-            this.especialidade = leitor.nextLine();
-            System.out.println("Sua consulta é dia " + getDataHora() + " e a especialidade é " + getEspecialidade()+".");
+            consulta.setEspecialidade(leitor.nextLine());
+            System.out.println("Sua consulta é dia " + consulta.getDataHora() + " e a especialidade é " + consulta.getEspecialidade()+".");
             return;
         } else {
             System.out.println("Ok, você será direcionado para a aba de agendar consultas.");
