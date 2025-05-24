@@ -47,7 +47,7 @@ public class PersonaTeleconsulta extends Usuario{
                     "\n" + "é um prazer te atender em um consulta on-line, por isso não se preocupe se você tem vergonha ou dificuldade de se abrir com nossa equipe,"+
                     "\n" + "Durante o uso do nosso aplicativo vamos te ajudar!");
         } else {
-            System.out.println("\nEntendido. Caso tenha interesse futuro em Psicologia ou Fonoaudiologia, saiba que essas especialidades são adequadas para atendimento online.");
+            System.out.println("\nEntendido. Caso tenha interesse em Psicologia ou Fonoaudiologia, saiba que essas especialidades são adequadas para atendimento online.");
         }
         return null;
     }

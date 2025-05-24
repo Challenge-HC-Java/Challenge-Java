@@ -26,7 +26,6 @@ public class FacilitaReabi  {
             System.out.println("\n Menu principal:");
             System.out.println("\n" +"Informações sobre sua próxima consulta (data, horário e link).");
             System.out.println("\n" +"Explicações simples sobre como funciona a teleconsulta.");
-            System.out.println("\n" +"Botão direto para entrar na consulta no dia e hora marcados.");
             System.out.println("\n Passo a passo para usar o aplicativo:");
             System.out.println("\n==========================================");
             System.out.println("\n" +"1. Abra o aplicativo no celular."+ "\n" +
